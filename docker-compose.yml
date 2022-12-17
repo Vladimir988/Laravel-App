@@ -1,0 +1,66 @@
+version: '3.3'
+
+services:
+  laravel-app:
+    image: laravel-app:1.0
+    ports:
+      - 8889:8080
+    volumes:
+      - .:/var/www
+    environment:
+      # app config
+      - APP_ENV=local
+      - APP_URL=http://localhost:8888
+      - ASSET_URL=http://localhost:8888
+      - LOG_CHANNEL=stack
+      # db config
+      - DB_CONNECTION=pgsql
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=laravel_app
+      - DB_USERNAME=root
+      - DB_PASSWORD=123456
+      - BROADCAST_DRIVER=log
+      - CACHE_DRIVER=file
+      - QUEUE_CONNECTION=sync
+      - SESSION_DRIVER=file
+      - SESSION_LIFETIME=120
+      - REDIS_HOST={{ redis_host }}
+      - REDIS_PASSWORD={{ redis_pass }}
+      - REDIS_PORT=6379
+      - MAIL_DRIVER=local
+      - MAIL_ENCRYPTION=tls
+      - NOTIFICATION_TO_EMAIL=test@test.com
+      - NOTIFICATION_VACANCY_TO_EMAIL=test@test.com
+      - NOTIFICATION_COPY_TO_EMAIL_1=test@test.com
+      - NOTIFICATION_COPY_TO_EMAIL_2=test@test.com
+      - FILESYSTEM_CLOUD=s3
+      - AWS_DEFAULT_REGION=us-east-2
+      - AWS_BUCKET=betterme-satge-bucket
+    restart: always
+    networks:
+      - lapp-network
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: laravel_app
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 123456
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - lapp-network
+
+networks:
+  lapp-network:
+    driver: bridge
+
+volumes:
+  db-data:
+    driver: local
