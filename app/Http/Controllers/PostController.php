@@ -9,9 +9,22 @@ class PostController extends Controller
 {
     public function index()
     {
-        $post = Post::find(1);
+        $posts = Post::all();
 
-        dump($post->title);
-        dd($post);
+        foreach ($posts as $post) {
+            dump($post->title);
+        }
+
+        $druftPosts = Post::where('is_published', false)->get();
+
+        foreach ($druftPosts as $post) {
+            dump($post->title);
+        }
+
+        $firstPublished = Post::where('is_published', true)->first();
+
+        dump($firstPublished->title);
+
+        dd('... end!');
     }
 }
