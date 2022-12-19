@@ -32,6 +32,13 @@ class PostController extends Controller
     {
         $postsArr = [
             [
+                'title'        => 'title of post from phpstorm 1',
+                'content'      => 'some interesting content 1',
+                'image'        => 'image1.jpg',
+                'likes'        => 11,
+                'is_published' => true,
+            ],
+            [
                 'title'        => 'title of post from phpstorm 2',
                 'content'      => 'some interesting content 2',
                 'image'        => 'image2.jpg',
@@ -68,5 +75,25 @@ class PostController extends Controller
         ]);
 
         dd($post);
+    }
+
+    public function delete()
+    {
+        $id   = 2;
+        $post = Post::find($id);
+
+        $post->delete();
+
+        dd('deleted !');
+    }
+
+    public function restore()
+    {
+        $id   = 2;
+        $post = Post::withTrashed()->find($id);
+
+        $post->restore();
+
+        dd('restored !');
     }
 }
