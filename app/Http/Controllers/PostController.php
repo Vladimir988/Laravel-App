@@ -53,4 +53,20 @@ class PostController extends Controller
 
         dd('done!');
     }
+
+    public function update()
+    {
+        $id   = 6;
+        $post = Post::find($id);
+
+        $post->update([
+            'title'        => 'title of post from phpstorm ' . $id,
+            'content'      => 'some interesting content ' . $id,
+            'image'        => 'image' . $id . '.jpg',
+            'likes'        => $id * 11,
+            'is_published' => true,
+        ]);
+
+        dd($post);
+    }
 }
