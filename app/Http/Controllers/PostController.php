@@ -96,4 +96,46 @@ class PostController extends Controller
 
         dd('restored !');
     }
+
+    public function firstOrCreate()
+    {
+        $anotherPost = [
+            'title'        => 'title of anotherPost post',
+            'content'      => 'some interesting content of anotherPost',
+            'image'        => 'anotherPost.jpg',
+            'likes'        => 50000,
+            'is_published' => true,
+        ];
+
+        $post = Post::firstOrCreate(
+            [
+                'title' => 'title of anotherPost post',
+            ],
+            $anotherPost
+        );
+
+        dump($post->content);
+        dd('done !');
+    }
+
+    public function updateOrCreate()
+    {
+        $anotherPost = [
+            'title'        => 'updateOrCreate post title 111',
+            'content'      => 'updateOrCreate post content 111',
+            'image'        => 'updateOrCreate.jpg',
+            'likes'        => 1,
+            'is_published' => true,
+        ];
+
+        $post = Post::updateOrCreate(
+            [
+                'title' => 'updateOrCreate post title',
+            ],
+            $anotherPost
+        );
+
+        dump($post->content);
+        dd('done !');
+    }
 }
