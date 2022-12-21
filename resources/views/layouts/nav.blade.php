@@ -15,9 +15,6 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="{{ route('post.index') }}">All posts</a>
                     <a class="dropdown-item" href="{{ route('post.create') }}">Create</a>
-                    <a class="dropdown-item" href="#">Update</a>
-                    <a class="dropdown-item" href="#">Delete</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
                 </div>
             </li>
         </ul>

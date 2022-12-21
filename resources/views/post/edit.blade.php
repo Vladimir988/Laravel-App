@@ -21,6 +21,7 @@
                 <label for="likes">Likes</label>
                 <input name="likes" type="number" class="form-control" id="likes" placeholder="Likes" value="{{ $post->likes }}">
             </div>
+            <a class="btn btn-secondary mr-3" href="{{ route('post.show', $post->id) }}">Back</a>
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>

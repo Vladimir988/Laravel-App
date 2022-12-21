@@ -8,11 +8,12 @@
     </div>
     <div>
         <a class="btn btn-success mr-3" href="{{ route('post.edit', $post->id) }}" role="button">Edit</a>
-        <form action="{{ route('post.delete', $post->id) }}" method="post">
+        <form action="{{ route('post.delete', $post->id) }}" method="post" style="display: inline-block;">
             @csrf
             @method('delete')
             <button type="submit" class="btn btn-danger mr-3">Delete</button>
         </form>
+        <hr>
         <a class="btn btn-primary" href="{{ route('post.index') }}" role="button">All posts</a>
     </div>
 @endsection
