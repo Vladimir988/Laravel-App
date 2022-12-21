@@ -11,66 +11,57 @@ class PostController extends Controller
     {
         $posts = Post::all();
 
-        return view('posts.index', compact('posts'));
+        return view('post.index', compact('posts'));
     }
 
     public function create()
     {
-        $postsArr = [
-            [
-                'title'        => 'title of post from phpstorm 1',
-                'content'      => 'some interesting content 1',
-                'image'        => 'image1.jpg',
-                'likes'        => 11,
-                'is_published' => true,
-            ],
-            [
-                'title'        => 'title of post from phpstorm 2',
-                'content'      => 'some interesting content 2',
-                'image'        => 'image2.jpg',
-                'likes'        => 22,
-                'is_published' => true,
-            ],
-            [
-                'title'        => 'title of post from phpstorm 3',
-                'content'      => 'some interesting content 3',
-                'image'        => 'image3.jpg',
-                'likes'        => 33,
-                'is_published' => true,
-            ],
-        ];
-
-        foreach ($postsArr as $post) {
-            Post::create($post);
-        }
-
-        dd('done!');
+        return view('post.create');
     }
 
-    public function update()
+    public function store()
     {
-        $id   = 6;
-        $post = Post::find($id);
-
-        $post->update([
-            'title'        => 'title of post from phpstorm ' . $id,
-            'content'      => 'some interesting content ' . $id,
-            'image'        => 'image' . $id . '.jpg',
-            'likes'        => $id * 11,
-            'is_published' => true,
+        $data = request()->validate([
+            'title' => 'string',
+            'post_content' => 'string',
+            'image' => 'string',
+            'likes' => 'integer',
         ]);
 
-        dd($post);
+        Post::create($data);
+
+        return redirect()->route('post.index');
     }
 
-    public function delete()
+    public function show(Post $post)
     {
-        $id   = 2;
-        $post = Post::find($id);
+        return view('post.show', compact('post'));
+    }
 
+    public function edit(Post $post)
+    {
+        return view('post.edit', compact('post'));
+    }
+
+    public function update(Post $post)
+    {
+        $data = request()->validate([
+            'title' => 'string',
+            'post_content' => 'string',
+            'image' => 'string',
+            'likes' => 'integer',
+        ]);
+
+        $post->update($data);
+
+        return redirect()->route('post.show', $post->id);
+    }
+
+    public function destroy(Post $post)
+    {
         $post->delete();
 
-        dd('deleted !');
+        return redirect()->route('post.index');
     }
 
     public function restore()
