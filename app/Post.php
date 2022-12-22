@@ -12,4 +12,9 @@ class Post extends Model
     protected $table   = 'posts';
     protected $guarded = [];
     // protected $fillable = ['title', 'content', 'image', 'likes', 'is_published'];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
 }
