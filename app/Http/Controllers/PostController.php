@@ -27,16 +27,17 @@ class PostController extends Controller
 
     public function create()
     {
-        return view('post.create');
+        $categories = Category::all();
+        return view('post.create', compact('categories'));
     }
 
     public function store()
     {
         $data = request()->validate([
-            'title' => 'string',
+            'title'        => 'string',
             'post_content' => 'string',
-            'image' => 'string',
-            'likes' => 'integer',
+            'image'        => 'string',
+            'category_id'  => 'integer',
         ]);
 
         Post::create($data);
@@ -51,16 +52,17 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        return view('post.edit', compact('post'));
+        $categories = Category::all();
+        return view('post.edit', compact('post', 'categories'));
     }
 
     public function update(Post $post)
     {
         $data = request()->validate([
-            'title' => 'string',
+            'title'        => 'string',
             'post_content' => 'string',
-            'image' => 'string',
-            'likes' => 'integer',
+            'image'        => 'string',
+            'category_id'  => 'integer',
         ]);
 
         $post->update($data);
