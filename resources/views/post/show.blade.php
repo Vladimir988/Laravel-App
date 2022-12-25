@@ -1,10 +1,10 @@
 @extends('layouts.main')
 @section('content')
     <div class="post mb-3">
-        <div class="post-title">ID: {{ $post->id }}</div>
+        <div class="post-id">ID: {{ $post->id }}</div>
         <div class="post-title">Title: {{ $post->title }}</div>
         <div class="post-content">Content: {{ $post->post_content }}</div>
-        <div class="post-likes">Category: {{ $post->category->title }}</div>
+        <div class="post-category">Category: {{ $post->category->title }}</div>
     </div>
     <div>
         <a class="btn btn-success mr-3" href="{{ route('post.edit', $post->id) }}" role="button">Edit</a>
