@@ -5,6 +5,11 @@
         <div class="post-title">Title: {{ $post->title }}</div>
         <div class="post-content">Content: {{ $post->post_content }}</div>
         <div class="post-category">Category: {{ $post->category->title }}</div>
+        <div class="post-category">Tags:
+            @foreach($post->tags as $tag)
+                <span class="badge badge-success">{{ $tag->title }}</span>
+            @endforeach
+        </div>
     </div>
     <div>
         <a class="btn btn-success mr-3" href="{{ route('post.edit', $post->id) }}" role="button">Edit</a>

@@ -27,6 +27,18 @@
                     @endforeach
                 </select>
             </div>
+            <div class="form-group">
+                <label for="tags">Tags</label>
+                <select name="tags[]" multiple class="form-control" id="tags">
+                    @foreach($tags as $tag)
+                        <option
+                            @foreach($post->tags as $postTag)
+                                {{ $tag->id === $postTag->id ? 'selected' : '' }}
+                            @endforeach
+                            value="{{ $tag->id }}">{{ $tag->title }}</option>
+                    @endforeach
+                </select>
+            </div>
             <a class="btn btn-secondary mr-3" href="{{ route('post.show', $post->id) }}">Back</a>
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
