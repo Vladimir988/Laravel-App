@@ -4,6 +4,7 @@
         <div class="post-id">ID: {{ $post->id }}</div>
         <div class="post-title">Title: {{ $post->title }}</div>
         <div class="post-content">Content: {{ $post->post_content }}</div>
+        <div class="post-image">Image: {{ $post->image }}</div>
         <div class="post-category">Category: {{ $post->category->title }}</div>
         <div class="post-category">Tags:
             @foreach($post->tags as $tag)

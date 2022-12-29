@@ -39,6 +39,15 @@
                     @endforeach
                 </select>
             </div>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <a class="btn btn-secondary mr-3" href="{{ route('post.show', $post->id) }}">Back</a>
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
