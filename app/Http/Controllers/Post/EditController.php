@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Post;
 
 use App\Category;
-use App\Http\Controllers\Controller;
 use App\Post;
 use App\Tag;
 
-class EditController extends Controller
+class EditController extends BaseController
 {
     public function __invoke(Post $post)
     {
