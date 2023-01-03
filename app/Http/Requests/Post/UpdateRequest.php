@@ -28,7 +28,7 @@ class UpdateRequest extends FormRequest
             'post_content' => 'required|string',
             'image'        => 'required|string',
             'category_id'  => 'integer',
-            'tags'         => '',
+            'tags'         => 'array',
         ];
     }
 }
