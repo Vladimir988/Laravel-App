@@ -11,6 +11,6 @@
         @endforeach
     </div>
     <div class="links-wrapper mt-4">
-        {{ $posts->links() }}
+        {{ $posts->appends($_GET)->links() }}
     </div>
 @endsection
