@@ -27,3 +27,9 @@ Route::group(['namespace' => 'Post'], function () {
 
 Route::get('/index', 'IndexController@index')->name('main.index');
 Route::get('/about', 'AboutController@index')->name('about.index');
+
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+    Route::group(['namespace' => 'Post'], function () {
+        Route::get('/post', 'IndexController')->name('admin.post.index');
+    });
+});
