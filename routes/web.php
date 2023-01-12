@@ -25,7 +25,7 @@ Route::group(['namespace' => 'Post'], function () {
     Route::delete('/posts/{post}', 'DestroyController')->name('post.delete');
 });
 
-Route::get('/index', 'IndexController@index')->name('main.index');
+Route::get('/home', 'HomeController@index')->name('home.index');
 Route::get('/about', 'AboutController@index')->name('about.index');
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admin'], function () {
@@ -35,5 +35,3 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

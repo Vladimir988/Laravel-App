@@ -72,7 +72,9 @@
         </nav>
 
         <main class="py-4">
+            @include('layouts.nav')
             @yield('content')
+            @include('assets.scripts')
         </main>
     </div>
 </body>
