@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Illuminate\Http\Request;
 use Closure;
 
 class AdminPanelMiddleware
@@ -9,13 +10,14 @@ class AdminPanelMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Closure $next
+     * @param Request $request
+     * @param Closure $next
+     *
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
-        if(auth()->user()->role !== 'admin') {
+        if (! $request->user() || auth()->user()->role !== 'admin') {
             return redirect()->route('main.index');
         }
 
