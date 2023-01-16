@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use App\Imports\PostsImport;
-use App\Post;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Console\Command;
 use Maatwebsite\Excel\Facades\Excel;
