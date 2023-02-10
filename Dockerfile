@@ -1,5 +1,5 @@
 # Create final app image
-FROM trafex/alpine-nginx-php7:1.4.0
+FROM allisa/php8.1-fpm
 
 USER root
 
@@ -7,31 +7,6 @@ USER root
 RUN apk --no-cache add \
   curl \
   nginx \
-  php7 \
-  php7-simplexml \
-  php7-tokenizer \
-  php7-exif \
-  php7-fileinfo \
-  php7-xmlwriter \
-  php7-ctype \
-  php7-curl \
-  php7-dom \
-  php7-fpm \
-  php7-gd \
-  php7-intl \
-  php7-json \
-  php7-mbstring \
-  php7-pdo \
-  php7-mysqli \
-  php7-pgsql \
-  php7-pdo_pgsql \
-  php7-opcache \
-  php7-openssl \
-  php7-phar \
-  php7-session \
-  php7-xml \
-  php7-xmlreader \
-  php7-zlib \
   supervisor \
   nano
 
@@ -51,6 +26,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer self-update --2
 
 #### Better do the following on the init ####
-RUN composer install
+RUN composer install --ignore-platform-req=ext-zip
 
 USER nobody
