@@ -8,6 +8,9 @@
                 <div class="col-lg-12 col-12">
                     Categories
                 </div>
+                <div class="col-lg-2 col-2">
+                    <a href="{{ route('admin.category.create') }}" class="btn btn-block btn-primary">Create</a>
+                </div>
             </div>
         </div>
     </section>

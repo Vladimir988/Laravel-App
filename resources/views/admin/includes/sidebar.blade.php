@@ -29,7 +29,7 @@
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Dashboard
+                            Posts
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -41,7 +41,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('categories') }}" class="nav-link">
+                            <a href="{{ route('admin.category.index') }}" class="nav-link">
                                 <i class="fas fa-list nav-icon"></i>
                                 <p>Categories</p>
                             </a>
