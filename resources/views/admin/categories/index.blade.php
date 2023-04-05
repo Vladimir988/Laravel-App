@@ -29,6 +29,7 @@
                                         <th>Title</th>
                                         <th>Date Created</th>
                                         <th>Date Updated</th>
+                                        <th>Show</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -40,7 +41,8 @@
                                             <td>{{ $category->title }}</td>
                                             <td>{{ $category->created_at }}</td>
                                             <td>{{ $category->updated_at }}</td>
-                                            <td><a href="{{ route('admin.category.show', $category->id) }}"><i class="far fa-edit"></i></a></td>
+                                            <td><a href="{{ route('admin.category.show', $category->id) }}"><i class="far fa-eye"></i></a></td>
+                                            <td><a href="{{ route('admin.category.edit', $category->id) }}"><i class="far fa-edit"></i></a></td>
                                             <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
                                         </tr>
                                     @endforeach
