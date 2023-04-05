@@ -8,7 +8,7 @@
                     <div class="col-lg-12 col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Responsive Hover Table</h3>
+                                <h3 class="card-title">Categories List</h3>
                                 <div class="card-tools">
                                     <div class="input-group input-group-sm" style="width: 150px;">
                                         <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
@@ -29,6 +29,8 @@
                                         <th>Title</th>
                                         <th>Date Created</th>
                                         <th>Date Updated</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -38,6 +40,8 @@
                                             <td>{{ $category->title }}</td>
                                             <td>{{ $category->created_at }}</td>
                                             <td>{{ $category->updated_at }}</td>
+                                            <td><a href="{{ route('admin.category.show', $category->id) }}"><i class="far fa-edit"></i></a></td>
+                                            <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
