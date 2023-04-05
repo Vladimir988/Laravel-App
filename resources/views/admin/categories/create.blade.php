@@ -1,7 +1,7 @@
 @extends('admin.layouts.main')
 @section('content')
     <div class="content-wrapper">
-        @include('admin.includes.content-header')
+        @include('admin.includes.content-header', ['title' => 'Add new category'])
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
