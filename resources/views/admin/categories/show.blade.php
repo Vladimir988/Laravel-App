@@ -16,6 +16,7 @@
                                         <th>Date Created</th>
                                         <th>Date Updated</th>
                                         <th>Edit</th>
+                                        <th>Delete</th>
                                     </tr>
                                     <tr>
                                         <td>{{ $category->id }}</td>
@@ -23,6 +24,13 @@
                                         <td>{{ $category->created_at }}</td>
                                         <td>{{ $category->updated_at }}</td>
                                         <td><a href="{{ route('admin.category.edit', $category->id) }}"><i class="far fa-edit"></i></a></td>
+                                        <td>
+                                            <form action="{{ route('admin.category.delete', $category->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="border-0 bg-transparent"><i class="fas fa-trash-alt text-danger" role="button"></i></button>
+                                            </form>
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>

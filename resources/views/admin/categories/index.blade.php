@@ -43,7 +43,13 @@
                                             <td>{{ $category->updated_at }}</td>
                                             <td><a href="{{ route('admin.category.show', $category->id) }}"><i class="far fa-eye"></i></a></td>
                                             <td><a href="{{ route('admin.category.edit', $category->id) }}"><i class="far fa-edit"></i></a></td>
-                                            <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
+                                            <td>
+                                                <form action="{{ route('admin.category.delete', $category->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="border-0 bg-transparent"><i class="fas fa-trash-alt text-danger" role="button"></i></button>
+                                                </form>
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
