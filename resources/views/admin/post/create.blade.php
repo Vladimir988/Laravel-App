@@ -14,10 +14,17 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="post-name">Post name</label>
-                                        <input type="text" class="form-control" id="post-name" name="title" placeholder="Post name">
+                                        <label for="post-name">Name:</label>
+                                        <input type="text" class="form-control" id="post-name" name="title" placeholder="Post name" value="{{ old('title') }}">
                                         @error('title')
                                             <div class="text-danger">Post name is required!</div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="post-name">Content:</label>
+                                        <textarea id="post-content" name="content">{{ old('content') }}</textarea>
+                                        @error('content')
+                                            <div class="text-danger">Post content is required!</div>
                                         @enderror
                                     </div>
                                 </div>
