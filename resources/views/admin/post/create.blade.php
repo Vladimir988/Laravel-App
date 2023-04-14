@@ -10,7 +10,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">Add post</h3>
                             </div>
-                            <form action="{{ route('admin.post.store') }}" method="POST">
+                            <form action="{{ route('admin.post.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
@@ -26,6 +26,30 @@
                                         @error('content')
                                             <div class="text-danger">Post content is required!</div>
                                         @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="preview_image">Add preview</label>
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="preview_image">
+                                                <label class="custom-file-label">Choose file</label>
+                                            </div>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">Upload</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="main_image">Add main image</label>
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="main_image">
+                                                <label class="custom-file-label">Choose file</label>
+                                            </div>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">Upload</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="card-footer">
