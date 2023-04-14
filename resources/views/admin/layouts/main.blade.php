@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/select2/select2.min.css') }}">
+    <style>
+        .custom-file-input:lang(en)~.custom-file-label::after {
+            content: '...';
+        }
+    </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed" style="overflow-x: hidden;">
 <div class="wrapper">
@@ -59,6 +65,7 @@
 </div>
 <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+<script src="{{ asset('plugins/select2/select2.min.js') }}"></script>
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script>$.widget.bridge('uibutton', $.ui.button);</script>
 <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
@@ -79,6 +86,7 @@
                 ['height', ['height']]
             ]
         });
+        $('.select2').select2({})
     });
     $(function () {
         bsCustomFileInput.init();

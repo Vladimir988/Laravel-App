@@ -34,9 +34,6 @@
                                                 <input type="file" class="custom-file-input" name="preview_image">
                                                 <label class="custom-file-label">Choose file</label>
                                             </div>
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">Upload</span>
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -46,10 +43,15 @@
                                                 <input type="file" class="custom-file-input" name="main_image">
                                                 <label class="custom-file-label">Choose file</label>
                                             </div>
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">Upload</span>
-                                            </div>
                                         </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label-bold">Jenis</label>
+                                        <select class="select2 form-control" id="type" multiple required>
+                                            <option value="">Pilih</option>
+                                            <option value="1">Head Office</option>
+                                            <option value="2">Branch Office</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="card-footer">
