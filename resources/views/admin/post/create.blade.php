@@ -35,6 +35,9 @@
                                                 <label class="custom-file-label">Choose file</label>
                                             </div>
                                         </div>
+                                        @error('preview_image')
+                                            <div class="text-danger">Preview is required!</div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="main_image">Add main image</label>
@@ -44,14 +47,24 @@
                                                 <label class="custom-file-label">Choose file</label>
                                             </div>
                                         </div>
+                                        @error('preview_image')
+                                            <div class="text-danger">Main image is required!</div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label-bold">Jenis</label>
-                                        <select class="select2 form-control" id="type" multiple required>
-                                            <option value="">Pilih</option>
-                                            <option value="1">Head Office</option>
-                                            <option value="2">Branch Office</option>
-                                        </select>
+                                        <label for="category_id">Categories</label>
+                                        <div class="input-group">
+                                            <select name="category_id" class="form-control">
+                                                @foreach($categories as $category)
+                                                    <option
+                                                        value="{{ $category->id }}"
+                                                        {{ $category->id == old('category_id') ? ' selected' : '' }}
+                                                    >
+                                                        {{ $category->title }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="card-footer">
