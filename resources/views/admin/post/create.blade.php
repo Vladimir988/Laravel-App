@@ -66,6 +66,16 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="tag_id">Tags</label>
+                                        <div class="select2-purple">
+                                            <select class="select2" name="tag_ids[]" multiple="multiple" data-placeholder="Select a tags" data-dropdown-css-class="select2-purple" style="width: 100%;">
+                                                @foreach($tags as $tag)
+                                                    <option value="{{ $tag->id }}">{{ $tag->title }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Create</button>
