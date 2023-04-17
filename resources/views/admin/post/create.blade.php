@@ -71,7 +71,9 @@
                                         <div class="select2-purple">
                                             <select class="select2" name="tag_ids[]" multiple="multiple" data-placeholder="Select a tags" data-dropdown-css-class="select2-purple" style="width: 100%;">
                                                 @foreach($tags as $tag)
-                                                    <option value="{{ $tag->id }}">{{ $tag->title }}</option>
+                                                    <option {{ isTagSelected($tag->id, old('tag_ids')) }} value="{{ $tag->id }}" >
+                                                        {{ $tag->title }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                         </div>
