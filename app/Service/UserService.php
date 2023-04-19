@@ -7,7 +7,7 @@ use App\Models\Post;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
-class PostService
+class UserService
 {
     public function store($data): void
     {

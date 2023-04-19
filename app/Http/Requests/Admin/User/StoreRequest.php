@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Requests\Admin\Post;
+namespace App\Http\Requests\Admin\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,13 +21,13 @@ class UpdateRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'title'         => 'required|string',
             'content'       => 'required|string',
-            'preview_image' => 'nullable|file',
-            'main_image'    => 'nullable|file',
+            'preview_image' => 'required|file',
+            'main_image'    => 'required|file',
             'category_id'   => 'integer|exists:categories,id',
             'tag_ids'       => 'nullable|array',
             'tag_ids.*'     => 'nullable|integer|exists:tags,id',
