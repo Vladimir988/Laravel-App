@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\User;
 
-use App\Http\Requests\Admin\Post\StoreRequest;
+use App\Http\Requests\Admin\User\StoreRequest;
 
 class StoreController extends BaseController
 {

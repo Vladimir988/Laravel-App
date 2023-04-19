@@ -12,10 +12,17 @@
                                 @method('PATCH')
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="user-name">User name:</label>
+                                        <label for="user-name">Name</label>
                                         <input type="text" class="form-control" id="user-name" name="name" placeholder="User name" value="{{ $user->name }}">
                                         @error('name')
-                                            <div class="text-danger">User name is required!</div>
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="user-email">Email</label>
+                                        <input type="text" class="form-control" id="user-email" name="email" placeholder="User email" value="{{ $user->email }}">
+                                        @error('email')
+                                            <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>

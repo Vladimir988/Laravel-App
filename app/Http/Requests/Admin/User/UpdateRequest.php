@@ -24,29 +24,20 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'         => 'required|string',
-            'content'       => 'required|string',
-            'preview_image' => 'nullable|file',
-            'main_image'    => 'nullable|file',
-            'category_id'   => 'integer|exists:categories,id',
-            'tag_ids'       => 'nullable|array',
-            'tag_ids.*'     => 'nullable|integer|exists:tags,id',
+            'name'     => 'required|string',
+            'email'    => 'required|string|email|unique:users',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'title.required'         => 'This field is required',
-            'title.string'           => 'Field should be string',
-            'content.required'       => 'This field is required',
-            'content.string'         => 'Field should be string',
-            'preview_image.required' => 'This field is required',
-            'preview_image.file'     => 'Field should be file',
-            'main_image.required'    => 'This field is required',
-            'main_image.file'        => 'Field should be file',
-            'category_id.integer'    => 'Field should be integer',
-            'tag_ids.array'          => 'Field should be array',
+            'name.required'     => 'This field is required',
+            'name.string'       => 'Field should be string',
+            'email.required'    => 'This field is required',
+            'email.string'      => 'Field should be string',
+            'email.email'       => 'Email should be in format: email@email.com',
+            'email.unique'      => 'User with this email already exists',
         ];
     }
 }

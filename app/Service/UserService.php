@@ -3,9 +3,9 @@
 namespace App\Service;
 
 use Exception;
-use App\Models\Post;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 
 class UserService
 {
@@ -13,16 +13,8 @@ class UserService
     {
         try {
             DB::beginTransaction();
-            $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
-            $data['main_image']    = Storage::disk('public')->put('/images', $data['main_image']);
-            if (isset($data['tag_ids'])) {
-                $tagIds = $data['tag_ids'];
-                unset($data['tag_ids']);
-            }
-            $post = Post::firstOrCreate($data);
-            if (isset($data['tag_ids'])) {
-                $post->tags()->attach($tagIds);
-            }
+            $data['password'] = Hash::make($data['password']);
+            User::firstOrCreate(['email' => $data['email']], $data);
             DB::commit();
         } catch (Exception $exception) {
             DB::rollBack();
@@ -30,28 +22,17 @@ class UserService
         }
     }
 
-    public function update($data, Post $post): Post
+    public function update($data, User $user): User
     {
         try {
             DB::beginTransaction();
-            if (isset($data['preview_image'])) {
-                $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
-            }
-            if (isset($data['main_image'])) {
-                $data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
-            }
-            if (isset($data['tag_ids'])) {
-                $tagIds = $data['tag_ids'];
-                unset($data['tag_ids']);
-                $post->tags()->sync($tagIds);
-            }
-            $post->update($data);
+            $user->update($data);
             DB::commit();
         } catch (Exception $exception) {
             DB::rollBack();
             abort(500);
         }
 
-        return $post;
+        return $user;
     }
 }
