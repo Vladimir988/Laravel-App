@@ -15,14 +15,14 @@
                                         <label for="post-name">Name:</label>
                                         <input type="text" class="form-control" id="post-name" name="title" placeholder="Post name" value="{{ $post->title }}">
                                         @error('title')
-                                            <div class="text-danger">Post name is required!</div>
+                                            <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="post-name">Content:</label>
                                         <textarea id="post-content" name="content">{{ $post->content }}</textarea>
                                         @error('content')
-                                            <div class="text-danger">Post content is required!</div>
+                                            <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group">
@@ -34,7 +34,7 @@
                                             </div>
                                         </div>
                                         @error('preview_image')
-                                            <div class="text-danger">Preview is required!</div>
+                                            <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group">
@@ -46,7 +46,7 @@
                                             </div>
                                         </div>
                                         @error('preview_image')
-                                            <div class="text-danger">Main image is required!</div>
+                                            <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group">
@@ -62,6 +62,9 @@
                                                     </option>
                                                 @endforeach
                                             </select>
+                                            @error('category_id')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -74,6 +77,9 @@
                                                     </option>
                                                 @endforeach
                                             </select>
+                                            @error('tag_ids')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
