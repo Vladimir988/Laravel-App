@@ -12,13 +12,27 @@ class User extends Authenticatable implements JWTSubject
     use Notifiable;
     use SoftDeletes;
 
+    const ROLE_ADMIN  = 0;
+    const ROLE_READER = 1;
+
+    public static function getRoles(): array
+    {
+        return [
+            self::ROLE_ADMIN  => 'Admin',
+            self::ROLE_READER => 'Reader',
+        ];
+    }
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
+        'role',
     ];
 
     /**
@@ -27,7 +41,8 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     public function getJWTIdentifier()

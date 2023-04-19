@@ -27,6 +27,7 @@ class StoreRequest extends FormRequest
             'name'     => 'required|string',
             'email'    => 'required|string|email|unique:users',
             'password' => 'required|string',
+            'role'     => 'required|integer',
         ];
     }
 
@@ -41,6 +42,8 @@ class StoreRequest extends FormRequest
             'email.unique'      => 'User with this email already exists',
             'password.required' => 'This field is required',
             'password.string'   => 'Field should be string',
+            'role.required'     => 'This field is required',
+            'role.integer'      => 'Field should be integer',
         ];
     }
 }

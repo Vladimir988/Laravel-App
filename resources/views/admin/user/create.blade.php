@@ -34,6 +34,24 @@
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
+                                    <div class="form-group">
+                                        <label for="role">Role</label>
+                                        <div class="input-group">
+                                            <select name="role" class="form-control">
+                                                @foreach($roles as $id => $role)
+                                                    <option
+                                                        value="{{ $id }}"
+                                                        {{ $id == old('role') ? ' selected' : '' }}
+                                                    >
+                                                        {{ $role }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            @error('role')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Create</button>
