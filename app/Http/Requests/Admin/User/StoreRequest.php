@@ -24,10 +24,9 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'     => 'required|string',
-            'email'    => 'required|string|email|unique:users',
-            'password' => 'required|string',
-            'role'     => 'required|integer',
+            'name'  => 'required|string',
+            'email' => 'required|string|email|unique:users',
+            'role'  => 'required|integer',
         ];
     }
 
@@ -40,8 +39,6 @@ class StoreRequest extends FormRequest
             'email.string'      => 'Field should be string',
             'email.email'       => 'Email should be in format: email@email.com',
             'email.unique'      => 'User with this email already exists',
-            'password.required' => 'This field is required',
-            'password.string'   => 'Field should be string',
             'role.required'     => 'This field is required',
             'role.integer'      => 'Field should be integer',
         ];

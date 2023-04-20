@@ -28,13 +28,6 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="user-password">Password</label>
-                                        <input type="password" class="form-control" id="user-password" name="password">
-                                        @error('password')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
                                         <label for="role">Role</label>
                                         <div class="input-group">
                                             <select name="role" class="form-control">
