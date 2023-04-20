@@ -2,13 +2,10 @@
 
 namespace App\Service;
 
-use App\Mail\User\PasswordMail;
+use App\Jobs\StoreUserJob;
 use Exception;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Str;
 
 class UserService
 {
@@ -16,10 +13,7 @@ class UserService
     {
         try {
             DB::beginTransaction();
-            $password         = Str::random(10);
-            $data['password'] = Hash::make($password);
-            User::firstOrCreate(['email' => $data['email']], $data);
-            Mail::to($data['email'])->send(new PasswordMail($password));
+            StoreUserJob::dispatch($data);
             DB::commit();
         } catch (Exception $exception) {
             DB::rollBack();
