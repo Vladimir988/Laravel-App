@@ -1,7 +1,7 @@
 @extends('admin.layouts.main')
 @section('content')
     <div class="content-wrapper">
-        @include('admin.includes.content-header', ['title' => 'Post'])
+        @include('admin.includes.content-header', ['title' => $post->title, 'breadcrumb' => 'posts'])
         <section class="content">
             <div class="container-fluid">
                 <div class="row">

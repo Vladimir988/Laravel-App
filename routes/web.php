@@ -17,7 +17,7 @@ Route::group(['namespace' => 'Main'], function () {
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () { // 'middleware' => ['auth', 'admin']
     Route::group(['namespace' => 'Main'], function () {
-        Route::get('/', 'IndexController')->name('main');
+        Route::get('/', 'IndexController')->name('admin.main.index');
     });
 
     Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
