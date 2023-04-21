@@ -77,6 +77,32 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-user-tag nav-icon"></i>
+                        <p>Personal <i class="right fas fa-angle-left"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('personal.main.index') }}" class="nav-link">
+                                <i class="fas fa-chart-pie nav-icon"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('personal.liked.index') }}" class="nav-link">
+                                <i class="fas fa-thumbs-up nav-icon"></i>
+                                <p>Liked posts</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('personal.comment.index') }}" class="nav-link">
+                                <i class="far fa-comment nav-icon"></i>
+                                <p>Comments</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </div>
