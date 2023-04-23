@@ -27,6 +27,9 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="preview_image">Add preview</label>
+                                        <div class="w-25 mb-3">
+                                            <img class="" src="{{ '/storage/' . $post->preview_image }}" alt="alt">
+                                        </div>
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" name="preview_image">
@@ -39,6 +42,9 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="main_image">Add main image</label>
+                                        <div class="w-25 mb-3">
+                                            <img class="" src="{{ '/storage/' . $post->main_image }}" alt="alt">
+                                        </div>
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" name="main_image">

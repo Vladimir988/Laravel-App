@@ -298,6 +298,10 @@ figure {
   margin: 0 0 1rem;
 }
 
+img {
+    width: 100%;
+}
+
 img,
 svg {
   vertical-align: middle;
