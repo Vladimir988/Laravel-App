@@ -15,6 +15,10 @@ Route::group(['namespace' => 'Main'], function () {
     Route::get('/', 'IndexController')->name('main.index');
 });
 
+Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
+    Route::get('/', 'IndexController')->name('post.index');
+});
+
 Route::group(['namespace' => 'Personal', 'prefix' => 'personal'], function () {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', 'IndexController')->name('personal.main.index');

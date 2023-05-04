@@ -2,23 +2,15 @@
 
 namespace App\Http\Controllers\Post;
 
-use App\Http\Filters\PostFiletr;
-use App\Http\Requests\Post\FilterRequest;
-use App\Http\Resources\Post\PostResource;
-use App\Post;
+use App\Http\Controllers\Controller;
+use App\Models\Post;
 
-class IndexController extends BaseController
+class IndexController extends Controller
 {
-    public function __invoke(FilterRequest $request)
+        public function __invoke()
     {
-        $data    = $request->validated();
-        $page    = $data['page'] ?? 1;
-        $perPage = $data['per_page'] ?? 10;
-        $filter  = app()->make(PostFiletr::class, ['queryParams' => array_filter($data)]);
-        $posts   = Post::filter($filter)->paginate($perPage, ['*'], 'page', $page);
-//        $posts  = Post::all();
-
-//        return PostResource::collection($posts);
-        return view('post.index', compact('posts'));
+        $posts       = Post::paginate(3);
+        $randomPosts = Post::inRandomOrder()->limit(10)->get();
+        return view('post.index', compact('posts', 'randomPosts'));
     }
 }
