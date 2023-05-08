@@ -6,16 +6,17 @@
     "type": "project",
     "require": {
         "php": "^8.1",
-        "fruitcake/laravel-cors": "^2.0",
         "doctrine/dbal": "2.13.9",
         "fideloper/proxy": "^4.0",
+        "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.5",
         "laravel/framework": "^8.75",
-        "maatwebsite/excel": "^3.1",
-        "tymon/jwt-auth": "^1.0",
         "laravel/sanctum": "^2.11",
+        "laravel/telescope": "^4.14",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.0"
+        "laravel/ui": "^3.0",
+        "maatwebsite/excel": "^3.1",
+        "tymon/jwt-auth": "^1.0"
     },
     "require-dev": {
         "filp/whoops": "^2.0",
